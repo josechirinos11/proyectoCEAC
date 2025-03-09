@@ -1,9 +1,9 @@
 <?php
 // Configuración de la base de datos con variables de entorno
-$host = getenv('DB_HOST') ?: 'localhost';
-$db   = getenv('DB_NAME') ?: 'soluciones_integrales';
-$user = getenv('DB_USER') ?: 'root';
-$pass = getenv('DB_PASS') ?: '01200300'; // Tu contraseña local
+$host = getenv('DB_HOST') ?: 'bpz18xvqbxzg1wemqnzd-mysql.services.clever-cloud.com';
+$db   = getenv('DB_NAME') ?: 'bpz18xvqbxzg1wemqnzd';
+$user = getenv('DB_USER') ?: 'uvm5nnnbbjhx1b6r';
+$pass = getenv('DB_PASS') ?: 'tyu3l76nlUwYLHmrVxIU'; // Tu contraseña local
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

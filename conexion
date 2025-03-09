@@ -1,0 +1,4 @@
+$host = getenv('DB_HOST') ?: 'localhost';
+$db   = getenv('DB_NAME') ?: 'soluciones_integrales';
+$user = getenv('DB_USER') ?: 'root';
+$pass = getenv('DB_PASS') ?: '01200300'; // Tu contraseña local
