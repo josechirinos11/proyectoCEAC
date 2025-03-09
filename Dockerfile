@@ -1,6 +1,11 @@
 # Usa la imagen oficial de PHP con Apache
 FROM php:8.2-apache
 
+# Instala las dependencias necesarias para PDO y MySQL
+RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd pdo pdo_mysql
+
 # Habilita el módulo de reescritura de Apache
 RUN a2enmod rewrite
 
@@ -12,9 +17,6 @@ COPY . /var/www/html/
 
 # Cambia la propiedad de los archivos para el usuario 'www-data' de Apache
 RUN chown -R www-data:www-data /var/www/html
-
-# Asegura que Apache sirva archivos desde la carpeta 'public'
-RUN echo "DocumentRoot /var/www/html/public" >> /etc/apache2/sites-available/000-default.conf
 
 # Expón el puerto 80
 EXPOSE 80
