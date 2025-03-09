@@ -1,26 +1,20 @@
 services:
-  - type: pserv
-    name: mysql
+  - name: php-app
+    type: web
     env: docker
-    dockerfilePath: ./Dockerfile.mysql
-    disk:
-      name: mysql-data
-      mountPath: /var/lib/mysql
-      sizeGB: 1
-  - type: web
-    name: soluciones_integrales
-    env: docker
-    dockerfilePath: ./Dockerfile
     plan: free
+    repo: https://github.com/josechirinos11/proyectoCEAC
+    branch: main
+    rootDir: /
+    dockerfilePath: Dockerfile
     envVars:
       - key: DB_HOST
-        fromService:
-          type: pserv
-          name: mysql
-          property: host
+        value: TU_HOST_DE_CLEVER_CLOUD
       - key: DB_NAME
-        value: soluciones_integrales
+        value: TU_BASE_DE_DATOS
       - key: DB_USER
-        value: root
+        value: TU_USUARIO
       - key: DB_PASS
-        value: 01200300
+        value: TU_CONTRASEÑA
+      - key: DB_PORT
+        value: "3306"
