@@ -1,0 +1,58 @@
+php -S localhost:8000 -t public
+
+
+/soluciones_integrales
+│
+├── /app
+│   ├── /controllers
+│   │      AuthController.php
+│   │      AseguradoraController.php
+│   │      AseguradoController.php
+│   │      ReparacionController.php
+│   │      DashboardController.php
+│   │
+│   ├── /models
+│   │      Usuario.php
+│   │      Aseguradora.php
+│   │      Asegurado.php
+│   │      Estado.php
+│   │      Reparacion.php
+│   │      Auditoria.php
+│   │
+│   └── /views
+│       ├── /auth
+│       │      login.php
+│       │
+│       ├── /aseguradoras
+│       │      index.php
+│       │      create.php
+│       │
+│       ├── /asegurados
+│       │      index.php
+│       │      create.php
+│       │
+│       ├── /reparaciones
+│       │      index.php
+│       │      create.php
+│       │
+│       ├── /dashboard
+│       │      home.php
+│       │
+│       └── /templates
+│              header.php
+│              footer.php
+│
+├── /config
+│      config.php
+│      database.php
+│
+├── /public
+│   ├── index.php
+│   ├── /css
+│   │      style.css
+│   ├── /js
+│   │      script.js
+│   └── /images
+│          (Aquí se almacenarán las imágenes subidas)
+│
+└── .htaccess

@@ -1,0 +1,64 @@
+-- Crear la base de datos
+CREATE DATABASE soluciones_integrales;
+USE soluciones_integrales;
+
+-- Tabla de usuarios (para autenticación)
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(20) NOT NULL
+);
+
+-- Tabla de aseguradoras (clientes: compañías aseguradoras)
+CREATE TABLE aseguradoras (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    domicilio VARCHAR(200),
+    CIF VARCHAR(20),
+    telefono VARCHAR(20),
+    email VARCHAR(100),
+    persona_contacto VARCHAR(100)
+);
+
+-- Tabla de asegurados (particulares que requieren reparaciones)
+CREATE TABLE asegurados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    direccion VARCHAR(200),
+    telefono VARCHAR(20),
+    domicilio_reparacion VARCHAR(200)
+);
+
+-- Tabla de estados (estado de las reparaciones)
+CREATE TABLE estados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    estado VARCHAR(50) NOT NULL
+);
+
+-- Tabla de reparaciones (averías)
+CREATE TABLE reparaciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_aseguradora INT NOT NULL,
+    id_asegurado INT NOT NULL,
+    id_estado INT NOT NULL,
+    fecha DATE NOT NULL,
+    descripcion TEXT,
+    imagen VARCHAR(255),
+    FOREIGN KEY (id_aseguradora) REFERENCES aseguradoras(id),
+    FOREIGN KEY (id_asegurado) REFERENCES asegurados(id),
+    FOREIGN KEY (id_estado) REFERENCES estados(id)
+);
+
+-- Tabla de auditoría (para registrar acciones de usuarios)
+CREATE TABLE auditoria (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    accion VARCHAR(100) NOT NULL,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    descripcion TEXT,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+);
+
+-- Insertar algunos estados iniciales
+INSERT INTO estados (estado) VALUES ('Pendiente'), ('En Proceso'), ('Completado');

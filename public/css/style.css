@@ -1,0 +1,554 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #2a2a2a;
+    color: #333;
+}
+
+html, body {
+    height: 100%;
+    margin: 0; /* Ya lo tienes en el reset, pero lo reforzamos */
+    padding: 0;
+}
+
+/* Header y menú */
+header {
+    color: #fff;
+ 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px; /* Solo padding arriba */
+}
+
+nav ul li {
+    background: #d3d3d3; /* Gris claro */
+    padding: 15px 20px;
+    margin: 5px;
+    border-radius: 5px 5px 0 0;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li a {
+    color: #000; /* Texto negro para contraste */
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+}
+
+nav ul li:hover {
+    background: #f0f0f0; /* Gris más claro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de crecimiento */
+}
+
+/* Main y secciones */
+main {
+    margin: 0 auto;
+    min-height: calc(100% - 40px); /* Resta los márgenes superior e inferior */
+    max-width: 1200px;
+    background: #d3d3d3;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Sombra blanca suave */
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+table img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Formularios */
+form {
+    margin: 20px 0;
+}
+form label {
+    display: block;
+    margin-top: 10px;
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+form button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #2a2a2a;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid #ffffff; /* Aquí estamos definiendo el borde */
+}
+
+/* Mensajes de error */
+.error {
+    color: red;
+    margin: 10px 0;
+}
+
+/* Responsive (existente) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+    table, form {
+        font-size: 0.9em;
+    }
+}
+
+/* General */
+
+/* Título */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Encabezados fijos (Simula <th>) */
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #2a2a2a;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.header > * {
+    flex: 1; /* Esto asegura que los hijos ocupen el mismo espacio */
+}
+
+/* Contenedor con scroll horizontal */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tarjetas individuales */
+.card {
+    padding-bottom: 10px;
+    display: flex; /* Alinea los datos en fila */
+    flex-direction: row; /* Distribuye los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    min-width: 100%; /* Asegura que cada card tenga espacio */
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    white-space: nowrap;
+    flex-wrap: wrap; /* Ajusta el contenido al tamaño de la tarjeta */
+}
+
+/* Espaciado entre los elementos dentro de la tarjeta */
+.card span {
+    width: 100%;
+    flex: 1; /* Distribuye el espacio uniformemente */
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    border-right: 1px solid #ddd; /* Línea separadora */
+}
+
+/* Elimina la línea separadora del último elemento */
+.card span:last-child {
+    border-right: none;
+}
+
+/* Tarjetas individuales */
+.cardAsegurado {
+    padding-bottom: 10px;
+    display: flex; /* Alinea los datos en fila */
+    flex-direction: row; /* Distribuye los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    min-width: 100%; /* Asegura que cada card tenga espacio */
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    white-space: nowrap;
+    flex-wrap: wrap; /* Ajusta el contenido al tamaño de la tarjeta */
+}
+
+/* Espaciado entre los elementos dentro de la tarjeta */
+.cardAsegurado span {
+    width: 100%;
+    flex: 1; /* Distribuye el espacio uniformemente */
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    border-right: 1px solid #ddd; /* Línea separadora */
+}
+
+/* Elimina la línea separadora del último elemento */
+.cardAsegurado span:last-child {
+    border-right: none;
+}
+
+/* Tarjetas individuales */
+.cardReparacion {
+    padding-bottom: 10px;
+    display: flex; /* Alinea los datos en fila */
+    flex-direction: row; /* Distribuye los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    min-width: 100%; /* Asegura que cada card tenga espacio */
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    white-space: nowrap;
+    flex-wrap: wrap; /* Ajusta el contenido al tamaño de la tarjeta */
+}
+
+/* Espaciado entre los elementos dentro de la tarjeta */
+.cardReparacion span {
+    width: 100%;
+    flex: 1; /* Distribuye el espacio uniformemente */
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    border-right: 1px solid #ddd; /* Línea separadora */
+}
+
+/* Elimina la línea separadora del último elemento */
+.cardReparacion span:last-child {
+    border-right: none;
+}
+
+/* Scroll visible siempre */
+.cards-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 4px;
+}
+
+/* Contenedor de búsqueda */
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-container input, .search-container select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-container input {
+    width: 300px;
+}
+
+.card:hover {
+    background-color: #e0e0e0; /* Gris suave */
+    cursor: pointer;
+}
+
+/* Estilos del modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 40%;
+    max-width: 800px; /* Aumentamos el ancho para dar espacio a la fila */
+    max-height: 80vh; /* Limitamos la altura para evitar scroll excesivo */
+    overflow-y: auto;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+footer h1, 
+footer h2, 
+footer h3, 
+footer h4, 
+footer h5, 
+footer h6, 
+footer p {
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    color: white; /* Todos los títulos y párrafos en blanco */
+}
+
+#closeBtn {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Nuevas reglas responsive para tabletas y celulares */
+@media (max-width: 768px) {
+    /* Menú de navegación como lista vertical */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        width: 80%;
+        text-align: center;
+    }
+
+    /* Ocultar el header en móviles */
+    .header {
+        display: none;
+    }
+
+    /* Cards como lista vertical */
+    .card, .cardAsegurado, .cardReparacion {
+        flex-direction: column;
+        align-items: flex-start;
+        white-space: normal;
+        padding: 15px;
+    }
+
+    .card span, .cardAsegurado span, .cardReparacion span {
+        width: 100%;
+        text-align: left;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding: 8px 0;
+    }
+
+    .card span:last-child, .cardAsegurado span:last-child, .cardReparacion span:last-child {
+        border-bottom: none;
+    }
+
+    /* Ajustar contenedor de búsqueda */
+    .search-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-container input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .search-container select {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Ajustar el modal */
+    .modal-content {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    /* Mantener estilos existentes */
+    table, form {
+        font-size: 0.9em;
+    }
+}
+
+.card:hover {
+    background-color: #e0e0e0; /* Gris suave */
+    cursor: pointer;
+}
+.cardAsegurado:hover {
+    background-color: #e0e0e0; /* Gris suave */
+    cursor: pointer;
+}
+.cardReparacion:hover {
+    background-color: #e0e0e0; /* Gris suave */
+    cursor: pointer;
+}
+/* Agregar al final de tu style.css */
+
+
+
+/* Contenedor del formulario */
+.login {
+    background: #d3d3d3; /* Fondo gris claro como main */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Sombra blanca suave */
+    width: 100%;
+    max-width: 400px; /* Ancho máximo para no ser demasiado ancho */
+}
+
+/* Ajuste para el título dentro del login */
+.login-form h2 {
+    margin-bottom: 20px;
+    color: #333; /* Color del texto igual al body */
+}
+.login-form {
+   display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre elementos */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajuste para el mensaje de error */
+.login-form .error {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Ajuste para el formulario dentro de .login */
+.login form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre elementos */
+}
+
+/* Ajuste para labels e inputs */
+.login form label {
+    font-weight: bold;
+    color: #333;
+}
+
+.login form input[type="text"],
+.login form input[type="password"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Ajuste para el botón */
+.login form button.btn {
+    background: #2a2a2a;
+    color: #fff;
+    padding: 12px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login form button.btn:hover {
+    background: #3a3a3a; /* Un poco más claro al pasar el mouse */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login {
+        padding: 20px;
+        max-width: 90%; /* Más flexible en móviles */
+    }
+}
+
+
+
+/* Estilos del carrusel */
+.carousel {
+    width: 100%;
+    overflow: hidden; /* Oculta el contenido que se sale */
+    position: relative;
+    margin-top: 20px; /* Espacio después del h2 */
+}
+
+.carousel-inner {
+    display: flex;
+    width: 300%; /* 3 ítems, cada uno ocupa 100% */
+    animation: slide 15s infinite ease-in-out;/* 2s por ítem, 9s en total */
+}
+
+.carousel-item {
+    width: 33.33%; /* Cada ítem ocupa 1/3 del contenedor */
+    text-align: center;
+    
+    background: transparent; /* Fondo blanco como las cards */
+ 
+    color: #333;
+    padding: 0; /* Eliminamos el padding para maximizar el ancho */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+.carousel-item img {
+    width: 100%; /* Máximo ancho posible */
+    height: 100%; /* Llena la altura del contenedor */
+    object-fit: cover; /* Recorta para un efecto panorámico */
+    display: block;
+    border-radius: 5px;
+}
+
+/* Animación para deslizar */
+@keyframes slide {
+    0% { transform: translateX(0); }           /* Comienza en la primera */
+    20% { transform: translateX(0); }          /* Pausa suave en la primera */
+    33.33% { transform: translateX(-33.33%); } /* Transición fluida a la segunda */
+    53.33% { transform: translateX(-33.33%); } /* Pausa suave en la segunda */
+    66.66% { transform: translateX(-66.66%); } /* Transición fluida a la tercera */
+    86.66% { transform: translateX(-66.66%); } /* Pausa suave en la tercera */
+    100% { transform: translateX(0); }         /* Regresa suavemente a la primera */
+}
