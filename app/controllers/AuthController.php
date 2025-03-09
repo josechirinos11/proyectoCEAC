@@ -23,20 +23,14 @@ class AuthController
             $password = $_POST['password'];
 
 
-            error_log(print_r($username, true));
-            error_log(print_r($password, true));
-
-
+        
             // Instanciar el modelo de Usuario
             $usuarioModel = new Usuario($this->pdo);
             $user = $usuarioModel->getUserByUsername($username);
-            var_dump($user);
-            error_log("Datos de la BD: " . print_r($user, true));
-
+       
 
             if ($user) {
-                error_log("Contraseña en BD: " . $user['password']);
-                error_log("Contraseña ingresada: " . $password);
+              
             
                 if (password_verify($password, $user['password'])) {
                     error_log("Contraseña válida, autenticando...");
