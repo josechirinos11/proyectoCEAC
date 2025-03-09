@@ -9,9 +9,10 @@ services:
       sizeGB: 1
   - type: web
     name: soluciones_integrales
-    env: php
+    runtime: php  # Cambiado de "env" a "runtime"
     plan: free
     rootDir: public
+    startCommand: "php -S 0.0.0.0:8000 index.php"  # Agregado explícitamente
     envVars:
       - key: DB_HOST
         fromService:
