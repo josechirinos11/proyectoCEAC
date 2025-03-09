@@ -1,0 +1,26 @@
+services:
+  - type: pserv
+    name: mysql
+    env: docker
+    dockerfilePath: ./Dockerfile.mysql
+    disk:
+      name: mysql-data
+      mountPath: /var/lib/mysql
+      sizeGB: 1
+  - type: web
+    name: soluciones_integrales
+    env: php
+    plan: free
+    rootDir: public
+    envVars:
+      - key: DB_HOST
+        fromService:
+          type: pserv
+          name: mysql
+          property: host
+      - key: DB_NAME
+        value: soluciones_integrales
+      - key: DB_USER
+        value: root
+      - key: DB_PASS
+        value: 01200300
