@@ -15,23 +15,15 @@ class AuthController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            // Mostrar los datos enviados en el formulario
-            //  var_dump($_POST); // Verifica qué está enviando el formulario
-            //  error_log("Datos recibidos: " . print_r($_POST, true));
-
             $username = $_POST['username'];
             $password = $_POST['password'];
-
-
         
             // Instanciar el modelo de Usuario
             $usuarioModel = new Usuario($this->pdo);
             $user = $usuarioModel->getUserByUsername($username);
        
-
             if ($user) {
-              
-            
+                          
                 if (password_verify($password, $user['password'])) {
                     error_log("Contraseña válida, autenticando...");
                     $_SESSION['user'] = $user;
@@ -55,6 +47,31 @@ class AuthController
             }
         } else {
             include "../app/views/auth/login.php";
+        }
+    }
+
+    // Mostrar formulario de registro y guardar usuario
+    public function register()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            // Instanciar el modelo de Usuario
+            $usuarioModel = new Usuario($this->pdo);
+            $user = $usuarioModel->getUserByUsername($username);
+
+            if ($user) {
+                $error = "El usuario ya existe.";
+                include "../app/views/auth/register.php";
+            } else {
+                $password = password_hash($password, PASSWORD_DEFAULT);
+                $usuarioModel->createUser($username, $password);
+                header("Location: index.php?controller=auth&action=login");
+                exit;
+            }
+        } else {
+            include "../app/views/auth/register.php";
         }
     }
 

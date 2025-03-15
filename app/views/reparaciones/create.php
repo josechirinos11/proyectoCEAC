@@ -1,7 +1,11 @@
 <?php include "../app/views/templates/header.php"; ?>
 
-<h2>Registrar Reparación</h2>
+
+<div class="pageHome tipoForm">
+
 <form action="index.php?controller=reparacion&action=create" method="POST" enctype="multipart/form-data">
+    
+<h2>Registrar Reparación</h2>
     <label for="id_aseguradora">Aseguradora:</label>
     <select name="id_aseguradora" id="id_aseguradora" required>
         <option value="">Seleccione</option>
@@ -37,5 +41,9 @@
     
     <button type="submit">Registrar</button>
 </form>
+
+
+</div>
+
 
 <?php include "../app/views/templates/footer.php"; ?>

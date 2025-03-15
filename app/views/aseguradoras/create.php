@@ -1,7 +1,10 @@
 <?php include "../app/views/templates/header.php"; ?>
 
-<h2>Añadir Aseguradora</h2>
+<div class="pageHome tipoForm">
+
+
 <form action="index.php?controller=aseguradora&action=create" method="POST">
+<h2>Añadir Aseguradora</h2>
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" id="nombre" required>
     
@@ -20,7 +23,9 @@
     <label for="persona_contacto">Persona de Contacto:</label>
     <input type="text" name="persona_contacto" id="persona_contacto">
     
-    <button type="submit">Guardar</button>
+    <button class="padding-boton" type="submit">Guardar</button>
 </form>
+
+</div>
 
 <?php include "../app/views/templates/footer.php"; ?>

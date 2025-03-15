@@ -1,7 +1,9 @@
 <?php include "../app/views/templates/header.php"; ?>
 
-<h2>Añadir Asegurado</h2>
+<div class="pageHome tipoForm">
+
 <form action="index.php?controller=asegurado&action=create" method="POST">
+<h2>Añadir Asegurado</h2>
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" id="nombre" required>
     
@@ -16,5 +18,7 @@
     
     <button type="submit">Guardar</button>
 </form>
+
+</div>
 
 <?php include "../app/views/templates/footer.php"; ?>

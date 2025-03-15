@@ -1,5 +1,8 @@
 <?php include "../app/views/templates/header.php"; ?>
 
+
+<div class="pageHome">
+
 <h2>Listado de Asegurados</h2>
 
 
@@ -74,13 +77,19 @@
        
         <form id="deleteForm" onsubmit="deleteAsegurado(event)">
             <input type="hidden" name="id" id="deleteId">
-            <button type="submit" style="background-color: red; color: white;">Eliminar</button>
+            <button type="submit" >Eliminar</button>
+                  
         </form>
 
-
-        <!-- Botón de cancelar -->
+        <form id="deleteForm" >
+           
         <button type="button" id="closeBtn">Cancelar</button>
+        </form>
+  
     </div>
+</div>
+
+
 </div>
 
 <script src="script.js"></script>

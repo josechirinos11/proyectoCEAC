@@ -1,5 +1,8 @@
 <?php include "../app/views/templates/header.php"; ?>
 
+
+<div class="pageHome">
+
 <h2>Listado de Reparaciones</h2>
 
 
@@ -60,7 +63,7 @@
 <!-- Modal -->
 <div id="modal" class="modal">
     <div class="modal-content">
-        <button id="closeBtn">Cerrar</button>
+       
         <!-- Formulario de actualización -->
         <form id="updateForm" action="index.php?controller=reparacion&action=update" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="id" id="modalId">
@@ -118,8 +121,16 @@
         <form id="deleteForm" action="index.php?controller=reparacion&action=delete" method="POST">
             <input type="hidden" name="id" id="deleteId">
             <button type="submit">Eliminar</button>
+          
         </form>
+
+        <form id="deleteForm" >
+           
+           <button type="button" id="closeBtn">Cancelar</button>
+           </form>
     </div>
+</div>
+
 </div>
 
 <script src="script.js"></script>

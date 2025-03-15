@@ -12,8 +12,8 @@ if (isset($_SESSION['usuario_verificado']) && $_SESSION['usuario_verificado'] ==
 <div class="page">
   <nav class="nav">
     <div class="navLinks">
-      <a href="index.php?controller=auth&action=register" class="navLink">Registro</a>
-      <span class="navActive">Login</span>
+      <a href="index.php?controller=auth&action=login" class="navLink">Login</a>
+      <span class="navActive">Registro</span>
     </div>
   </nav>
   <div class="content">
@@ -21,23 +21,23 @@ if (isset($_SESSION['usuario_verificado']) && $_SESSION['usuario_verificado'] ==
     <?php if (isset($error)) {
             echo "<p class='error'>{$error}</p>";
         } ?>
-      <h1 class="title">Iniciar Sesión</h1>
+      <h1 class="title">Registrarse</h1>
       
       <form id="loginForm" class="form" action="index.php?controller=auth&action=login" method="POST">
-        <div class="inputGroup">
+        <div class="Group">
           <label for="email">Correo Electrónico:</label>
           <input type="text" name="username" id="username" required>
         </div>
-        <div class="inputGroup">
+        <div class="Group">
           <label for="password">Contraseña:</label>
           <input type="password" name="password" id="password" required>
         </div>
         
-        <button type="submit" class="button">Login</button>
+        <button type="submit" class=" button">Registrarse</button>
       </form>
       <p class="link">
-        ¿No tienes cuenta?
-        <a href="index.php?controller=auth&action=register" class="registerLink">Regístrate aquí</a>
+        Ya tienes cuenta?
+        <a href="index.php?controller=auth&action=login" class="registerLink">Iniciar sesion aqui</a>
       </p>
     </main>
   </div>

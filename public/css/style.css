@@ -1,39 +1,147 @@
 /* Reset básico */
-* {
+:global(html),
+:global(body) {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #000;
+    /* Fondo oscuro aplicado a html y body */
+    height: 100%;
+    /* Asegura que cubra toda la altura */
 }
+.pageHome{
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #000;
+    color: var(--gray-alpha-100);
+    font-family: var(--font-geist-sans);
+   
+}
+.page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.5);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.3);
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #000;
+    color: var(--gray-alpha-100);
+    font-family: var(--font-geist-sans);
+}
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.5);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.3);
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+
 
 /* Estilos generales */
+html,
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background: #2a2a2a;
-    color: #333;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
-html, body {
-    height: 100%;
-    margin: 0; /* Ya lo tienes en el reset, pero lo reforzamos */
-    padding: 0;
+body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Header y menú */
 header {
     color: #fff;
- 
+
+}
+
+/* Menú superior derecha */
+.nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.navLinks {
+    display: flex;
+    gap: 20px;
+}
+
+.navLink {
+    color: var(--gray-alpha-200);
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s;
+    cursor: pointer;
+    /* Para manejar elementos sin href */
+}
+
+.navLink:hover {
+    color: var(--button-primary-hover);
+}
+
+.navActive {
+    color: var(--button-primary-hover);
+    font-weight: 600;
+}
+
+/* Contenido principal */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 40px;
+    gap: 40px;
+    /* Espacio entre animación y formulario */
+}
+
+/* Formulario */
+.main {
+    background: #1a1a1a;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
+    color: var(--gray-rgb);
+}
+
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--gray-alpha-200);
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    padding-top: 10px; /* Solo padding arriba */
+    padding-top: 10px;
+    /* Solo padding arriba */
 }
 
 nav ul li {
-    background: #d3d3d3; /* Gris claro */
+    background: #d3d3d3;
+    /* Gris claro */
     padding: 15px 20px;
     margin: 5px;
     border-radius: 5px 5px 0 0;
@@ -41,27 +149,21 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #000; /* Texto negro para contraste */
+    color: #000;
+    /* Texto negro para contraste */
     text-decoration: none;
     font-weight: bold;
     display: block;
 }
 
 nav ul li:hover {
-    background: #f0f0f0; /* Gris más claro al pasar el mouse */
-    transform: scale(1.05); /* Efecto de crecimiento */
+    background: #f0f0f0;
+    /* Gris más claro al pasar el mouse */
+    transform: scale(1.05);
+    /* Efecto de crecimiento */
 }
 
-/* Main y secciones */
-main {
-    margin: 0 auto;
-    min-height: calc(100% - 40px); /* Resta los márgenes superior e inferior */
-    max-width: 1200px;
-    background: #d3d3d3;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Sombra blanca suave */
-}
+
 
 /* Tablas */
 table {
@@ -69,11 +171,14 @@ table {
     border-collapse: collapse;
     margin-top: 20px;
 }
-table th, table td {
+
+table th,
+table td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
 }
+
 table img {
     max-width: 100%;
     height: auto;
@@ -81,12 +186,34 @@ table img {
 
 /* Formularios */
 form {
-    margin: 20px 0;
+
+    gap: 16px;
+
+
+    display: flex;
+    flex-direction: column;
+    /* Para que los elementos se apilen verticalmente */
+    align-items: stretch;
+    /* Asegura que ocupen todo el ancho disponible */
+    width: 100%;
+    /* Que el formulario ocupe todo el contenedor */
+
+
+    box-sizing: border-box;
+    /* Evita que el padding afecte el tamaño total */
+
+
 }
+
 form label {
     display: block;
-    margin-top: 10px;
+    width: 100%;
+    max-width: 90%; /* Evita que se expandan más allá del padre */
+    
+    margin: 0 auto;
+    
 }
+
 form input[type="text"],
 form input[type="email"],
 form input[type="password"],
@@ -94,32 +221,58 @@ form input[type="date"],
 form select,
 form textarea {
     width: 100%;
+    max-width: 90%; /* Evita que se expandan más allá del padre */
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
+    margin: 0 auto;
 }
+
 form button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 15px;
-    background: #007BFF;
+
+    /* Que el botón ocupe todo el ancho */
+    display: block;
+    /* Asegura que no tenga tamaño inline */
+    background-color: #444;
     color: #fff;
+    padding: 10px;
     border: none;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    width: 50%;
+    margin: 0 auto 10px auto; /* Arriba 0, izquierda/derecha auto, abajo 10px */
+}
+
+.btn {
+    /* Que el botón ocupe todo el ancho */
+    display: block;
+    /* Asegura que no tenga tamaño inline */
+    background-color: #444;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+form button:hover {
+    background-color: var(--button-primary-hover);
 }
 
 /* Botones */
-.btn {
-    display: inline-block;
-    padding: 8px 12px;
-    background: #2a2a2a;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    border: 2px solid #ffffff; /* Aquí estamos definiendo el borde */
-}
+
 
 /* Mensajes de error */
 .error {
@@ -132,7 +285,9 @@ form button {
     nav ul {
         flex-direction: column;
     }
-    table, form {
+
+    table,
+    form {
         font-size: 0.9em;
     }
 }
@@ -142,7 +297,7 @@ form button {
 /* Título */
 h2 {
     text-align: center;
-    margin-bottom: 20px;
+    
 }
 
 /* Encabezados fijos (Simula <th>) */
@@ -157,40 +312,70 @@ h2 {
     text-align: center;
 }
 
-.header > * {
-    flex: 1; /* Esto asegura que los hijos ocupen el mismo espacio */
+.header>* {
+    flex: 1;
+    /* Esto asegura que los hijos ocupen el mismo espacio */
 }
 
 /* Contenedor con scroll horizontal */
 .cards-container {
     display: flex;
     flex-direction: column;
+
+    background-color: #222;
+    /* Más oscuro, similar al formulario */
+
+
 }
 
 /* Tarjetas individuales */
 .card {
     padding-bottom: 10px;
-    display: flex; /* Alinea los datos en fila */
-    flex-direction: row; /* Distribuye los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    min-width: 100%; /* Asegura que cada card tenga espacio */
-    background: white;
+    display: flex;
+    /* Alinea los datos en fila */
+    flex-direction: row;
+    /* Distribuye los elementos horizontalmente */
+    align-items: center;
+    /* Centra los elementos verticalmente */
+    min-width: 100%;
+    /* Asegura que cada card tenga espacio */
+
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border: 1px solid #ddd;
     white-space: nowrap;
-    flex-wrap: wrap; /* Ajusta el contenido al tamaño de la tarjeta */
+    flex-wrap: wrap;
+    /* Ajusta el contenido al tamaño de la tarjeta */
+
+    background-color: #333;
+    /* Un tono más claro que el container para contraste */
+    color: #fff;
+    /* Texto blanco para mejor visibilidad */
+
+
+
+    transition: background 0.3s ease;
+
+
+
+
 }
 
 /* Espaciado entre los elementos dentro de la tarjeta */
 .card span {
     width: 100%;
-    flex: 1; /* Distribuye el espacio uniformemente */
+    flex: 1;
+    /* Distribuye el espacio uniformemente */
     padding: 5px;
     font-size: 14px;
     text-align: center;
-    border-right: 1px solid #ddd; /* Línea separadora */
+    border-right: 1px solid #ddd;
+    /* Línea separadora */
+
+    color: #bbb;
+    /* Gris claro para un mejor contraste con el fondo */
+    font-weight: bold;
 }
 
 /* Elimina la línea separadora del último elemento */
@@ -201,27 +386,50 @@ h2 {
 /* Tarjetas individuales */
 .cardAsegurado {
     padding-bottom: 10px;
-    display: flex; /* Alinea los datos en fila */
-    flex-direction: row; /* Distribuye los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    min-width: 100%; /* Asegura que cada card tenga espacio */
-    background: white;
+    display: flex;
+    /* Alinea los datos en fila */
+    flex-direction: row;
+    /* Distribuye los elementos horizontalmente */
+    align-items: center;
+    /* Centra los elementos verticalmente */
+    min-width: 100%;
+    /* Asegura que cada card tenga espacio */
+
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border: 1px solid #ddd;
     white-space: nowrap;
-    flex-wrap: wrap; /* Ajusta el contenido al tamaño de la tarjeta */
+    flex-wrap: wrap;
+    /* Ajusta el contenido al tamaño de la tarjeta */
+
+    background-color: #333;
+    /* Un tono más claro que el container para contraste */
+    color: #fff;
+    /* Texto blanco para mejor visibilidad */
+
+
+
+    transition: background 0.3s ease;
+
+
+
 }
 
 /* Espaciado entre los elementos dentro de la tarjeta */
 .cardAsegurado span {
     width: 100%;
-    flex: 1; /* Distribuye el espacio uniformemente */
+    flex: 1;
+    /* Distribuye el espacio uniformemente */
     padding: 5px;
     font-size: 14px;
     text-align: center;
-    border-right: 1px solid #ddd; /* Línea separadora */
+    border-right: 1px solid #ddd;
+    /* Línea separadora */
+
+    color: #bbb;
+    /* Gris claro para un mejor contraste con el fondo */
+    font-weight: bold;
 }
 
 /* Elimina la línea separadora del último elemento */
@@ -232,27 +440,50 @@ h2 {
 /* Tarjetas individuales */
 .cardReparacion {
     padding-bottom: 10px;
-    display: flex; /* Alinea los datos en fila */
-    flex-direction: row; /* Distribuye los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    min-width: 100%; /* Asegura que cada card tenga espacio */
-    background: white;
+    display: flex;
+    /* Alinea los datos en fila */
+    flex-direction: row;
+    /* Distribuye los elementos horizontalmente */
+    align-items: center;
+    /* Centra los elementos verticalmente */
+    min-width: 100%;
+    /* Asegura que cada card tenga espacio */
+
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     border: 1px solid #ddd;
     white-space: nowrap;
-    flex-wrap: wrap; /* Ajusta el contenido al tamaño de la tarjeta */
+    flex-wrap: wrap;
+    /* Ajusta el contenido al tamaño de la tarjeta */
+
+    background-color: #333;
+    /* Un tono más claro que el container para contraste */
+    color: #fff;
+    /* Texto blanco para mejor visibilidad */
+
+
+
+    transition: background 0.3s ease;
+
+
+
 }
 
 /* Espaciado entre los elementos dentro de la tarjeta */
 .cardReparacion span {
     width: 100%;
-    flex: 1; /* Distribuye el espacio uniformemente */
+    flex: 1;
+    /* Distribuye el espacio uniformemente */
     padding: 5px;
     font-size: 14px;
     text-align: center;
-    border-right: 1px solid #ddd; /* Línea separadora */
+    border-right: 1px solid #ddd;
+    /* Línea separadora */
+
+    color: #bbb;
+    /* Gris claro para un mejor contraste con el fondo */
+    font-weight: bold;
 }
 
 /* Elimina la línea separadora del último elemento */
@@ -278,7 +509,8 @@ h2 {
     margin-bottom: 20px;
 }
 
-.search-container input, .search-container select {
+.search-container input,
+.search-container select {
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -290,13 +522,16 @@ h2 {
 }
 
 .card:hover {
-    background-color: #e0e0e0; /* Gris suave */
+    background-color: #444;
+    /* Un poco más claro al hacer hover */
+    /* Gris suave */
     cursor: pointer;
 }
 
 /* Estilos del modal */
 .modal {
-    display: none; /* Oculto por defecto */
+    display: none;
+    /* Oculto por defecto */
     position: fixed;
     top: 0;
     left: 0;
@@ -308,14 +543,21 @@ h2 {
 }
 
 .modal-content {
-    background: white;
+    background: black;
     padding: 20px;
     border-radius: 5px;
     width: 40%;
-    max-width: 800px; /* Aumentamos el ancho para dar espacio a la fila */
-    max-height: 80vh; /* Limitamos la altura para evitar scroll excesivo */
+    max-width: 800px;
+    /* Aumentamos el ancho para dar espacio a la fila */
+    max-height: 80vh;
+    /* Limitamos la altura para evitar scroll excesivo */
     overflow-y: auto;
     text-align: center;
+
+    border: 2px solid #ccc; /* Borde de 2px color gris */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 4px 4px 15px rgba(255, 255, 255, 0.6); /* Sombra más clara */
+    padding-bottom: 0px; /* Espaciado interno */
 }
 
 .modal-buttons {
@@ -324,20 +566,21 @@ h2 {
     margin-top: 10px;
 }
 
-footer h1, 
-footer h2, 
-footer h3, 
-footer h4, 
-footer h5, 
-footer h6, 
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6,
 footer p {
     display: flex;
-    
+
     justify-content: center;
     align-items: center;
     padding-top: 20px;
     padding-bottom: 40px;
-    color: white; /* Todos los títulos y párrafos en blanco */
+    color: rgb(245, 237, 237);
+    /* Todos los títulos y párrafos en blanco */
 }
 
 #closeBtn {
@@ -348,9 +591,13 @@ footer p {
     border-radius: 5px;
     cursor: pointer;
 }
+#closeBtn:hover {
+    background-color: #ca524a;
+}
 
 /* Nuevas reglas responsive para tabletas y celulares */
 @media (max-width: 768px) {
+
     /* Menú de navegación como lista vertical */
     nav ul {
         flex-direction: column;
@@ -368,14 +615,18 @@ footer p {
     }
 
     /* Cards como lista vertical */
-    .card, .cardAsegurado, .cardReparacion {
+    .card,
+    .cardAsegurado,
+    .cardReparacion {
         flex-direction: column;
         align-items: flex-start;
         white-space: normal;
         padding: 15px;
     }
 
-    .card span, .cardAsegurado span, .cardReparacion span {
+    .card span,
+    .cardAsegurado span,
+    .cardReparacion span {
         width: 100%;
         text-align: left;
         border-right: none;
@@ -383,7 +634,9 @@ footer p {
         padding: 8px 0;
     }
 
-    .card span:last-child, .cardAsegurado span:last-child, .cardReparacion span:last-child {
+    .card span:last-child,
+    .cardAsegurado span:last-child,
+    .cardReparacion span:last-child {
         border-bottom: none;
     }
 
@@ -410,46 +663,59 @@ footer p {
     }
 
     /* Mantener estilos existentes */
-    table, form {
+    table,
+    form {
         font-size: 0.9em;
     }
 }
 
 .card:hover {
-    background-color: #e0e0e0; /* Gris suave */
+    background-color: #e0e0e0;
+    /* Gris suave */
     cursor: pointer;
 }
+
 .cardAsegurado:hover {
-    background-color: #e0e0e0; /* Gris suave */
+    background-color: #e0e0e0;
+    /* Gris suave */
     cursor: pointer;
 }
+
 .cardReparacion:hover {
-    background-color: #e0e0e0; /* Gris suave */
+    background-color: #e0e0e0;
+    /* Gris suave */
     cursor: pointer;
 }
+
 /* Agregar al final de tu style.css */
 
 
 
 /* Contenedor del formulario */
 .login {
-    background: #d3d3d3; /* Fondo gris claro como main */
+    background: #d3d3d3;
+    /* Fondo gris claro como main */
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Sombra blanca suave */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    /* Sombra blanca suave */
     width: 100%;
-    max-width: 400px; /* Ancho máximo para no ser demasiado ancho */
+    max-width: 400px;
+    /* Ancho máximo para no ser demasiado ancho */
 }
 
 /* Ajuste para el título dentro del login */
 .login-form h2 {
     margin-bottom: 20px;
-    color: #333; /* Color del texto igual al body */
+    color: #333;
+    /* Color del texto igual al body */
 }
+
 .login-form {
-   display: flex;
+    display: flex;
     flex-direction: column;
-    gap: 15px; /* Espacio entre elementos */
+    gap: 15px;
+    /* Espacio entre elementos */
     justify-content: center;
     align-items: center;
 }
@@ -464,7 +730,8 @@ footer p {
 .login form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espacio entre elementos */
+    gap: 15px;
+    /* Espacio entre elementos */
 }
 
 /* Ajuste para labels e inputs */
@@ -475,33 +742,21 @@ footer p {
 
 .login form input[type="text"],
 .login form input[type="password"] {
-    padding: 10px;
+
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 16px;
 }
 
-/* Ajuste para el botón */
-.login form button.btn {
-    background: #2a2a2a;
-    color: #fff;
-    padding: 12px;
-    border: 2px solid #ffffff;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
 
-.login form button.btn:hover {
-    background: #3a3a3a; /* Un poco más claro al pasar el mouse */
-}
+
 
 /* Responsive */
 @media (max-width: 768px) {
     .login {
         padding: 20px;
-        max-width: 90%; /* Más flexible en móviles */
+        max-width: 90%;
+        /* Más flexible en móviles */
     }
 }
 
@@ -510,45 +765,136 @@ footer p {
 /* Estilos del carrusel */
 .carousel {
     width: 100%;
-    overflow: hidden; /* Oculta el contenido que se sale */
+    overflow: hidden;
+    /* Oculta el contenido que se sale */
     position: relative;
-    margin-top: 20px; /* Espacio después del h2 */
+    margin-top: 20px;
+    /* Espacio después del h2 */
 }
 
 .carousel-inner {
     display: flex;
-    width: 300%; /* 3 ítems, cada uno ocupa 100% */
-    animation: slide 15s infinite ease-in-out;/* 2s por ítem, 9s en total */
+    width: 300%;
+    /* 3 ítems, cada uno ocupa 100% */
+    animation: slide 15s infinite ease-in-out;
+    /* 2s por ítem, 9s en total */
 }
 
 .carousel-item {
-    width: 33.33%; /* Cada ítem ocupa 1/3 del contenedor */
+    width: 33.33%;
+    /* Cada ítem ocupa 1/3 del contenedor */
     text-align: center;
-    
-    background: transparent; /* Fondo blanco como las cards */
- 
+
+    background: transparent;
+    /* Fondo blanco como las cards */
+
     color: #333;
-    padding: 0; /* Eliminamos el padding para maximizar el ancho */
+    padding: 0;
+    /* Eliminamos el padding para maximizar el ancho */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 400px;
 }
+
 .carousel-item img {
-    width: 100%; /* Máximo ancho posible */
-    height: 100%; /* Llena la altura del contenedor */
-    object-fit: cover; /* Recorta para un efecto panorámico */
+    width: 100%;
+    /* Máximo ancho posible */
+    height: 100%;
+    /* Llena la altura del contenedor */
+    object-fit: cover;
+    /* Recorta para un efecto panorámico */
     display: block;
     border-radius: 5px;
 }
 
 /* Animación para deslizar */
 @keyframes slide {
-    0% { transform: translateX(0); }           /* Comienza en la primera */
-    20% { transform: translateX(0); }          /* Pausa suave en la primera */
-    33.33% { transform: translateX(-33.33%); } /* Transición fluida a la segunda */
-    53.33% { transform: translateX(-33.33%); } /* Pausa suave en la segunda */
-    66.66% { transform: translateX(-66.66%); } /* Transición fluida a la tercera */
-    86.66% { transform: translateX(-66.66%); } /* Pausa suave en la tercera */
-    100% { transform: translateX(0); }         /* Regresa suavemente a la primera */
+    0% {
+        transform: translateX(0);
+    }
+
+    /* Comienza en la primera */
+    20% {
+        transform: translateX(0);
+    }
+
+    /* Pausa suave en la primera */
+    33.33% {
+        transform: translateX(-33.33%);
+    }
+
+    /* Transición fluida a la segunda */
+    53.33% {
+        transform: translateX(-33.33%);
+    }
+
+    /* Pausa suave en la segunda */
+    66.66% {
+        transform: translateX(-66.66%);
+    }
+
+    /* Transición fluida a la tercera */
+    86.66% {
+        transform: translateX(-66.66%);
+    }
+
+    /* Pausa suave en la tercera */
+    100% {
+        transform: translateX(0);
+    }
+
+    /* Regresa suavemente a la primera */
+}
+
+.registerLink {
+    color: var(--gray-alpha-200);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.registerLink:hover {
+    color: var(--button-primary-hover);
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: var(--gray-alpha-200);
+}
+
+.inputGroup input {
+    padding: 10px;
+    border: 1px solid rgba(var(--gray-rgb), 0.3);
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #333;
+    color: var(--gray-alpha-100);
+    transition: border-color 0.2s;
+}
+
+.inputGroup input:focus {
+    outline: none;
+    border-color: var(--button-primary-hover);
+}
+
+.tipoForm {
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+    width: 50%;
+    margin: 50px auto; /* Arriba 30px, izquierda/derecha auto */
+    border: 2px solid #ccc; /* Borde de 2px color gris */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 4px 4px 15px rgba(255, 255, 255, 0.6); /* Sombra más clara */
+    padding-bottom: 0px; /* Espaciado interno */
+    
 }
