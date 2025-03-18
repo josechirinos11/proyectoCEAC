@@ -23,7 +23,7 @@ if (isset($_SESSION['usuario_verificado']) && $_SESSION['usuario_verificado'] ==
         } ?>
       <h1 class="title">Registrarse</h1>
       
-      <form id="loginForm" class="form" action="index.php?controller=auth&action=login" method="POST">
+      <form id="loginForm" class="form" action="index.php?controller=auth&action=register" method="POST">
         <div class="Group">
           <label for="email">Correo Electrónico:</label>
           <input type="text" name="username" id="username" required>

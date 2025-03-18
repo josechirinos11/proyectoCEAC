@@ -13,9 +13,15 @@ class Usuario {
         return $stmt->fetch();
     }
 
-    public function createUser($username, $password) {
-        $stmt = $this->pdo->prepare("INSERT INTO usuarios (username, password) VALUES (?, ?)");
-        $stmt->execute([$username, password_hash($password, PASSWORD_DEFAULT)]);
+    public function createUser($username, $password, $role = 'user')
+    {
+        $sql = "INSERT INTO usuarios (username, password, role) VALUES (:username, :password, :role)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':username' => $username,
+            ':password' => $password,
+            ':role' => $role
+        ]);
     }
 
 
