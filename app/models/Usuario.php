@@ -25,5 +25,23 @@ class Usuario {
     }
 
 
+        // Obtener todas las usuario
+        public function getAllUsers()
+        {
+            $sql = "SELECT id, username FROM usuarios"; // Asegúrate de que 'usuarios' es el nombre correcto de la tabla
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+
+        //eliminar usuario
+        public function deleteUser($id)
+        {
+            $sql = "DELETE FROM usuarios WHERE id = ?";
+            $stmt = $this->pdo->prepare($sql);
+            return $stmt->execute([$id]);
+        }
+
 }
 ?>

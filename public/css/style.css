@@ -520,8 +520,65 @@ h2 {
 .search-container input {
     width: 300px;
 }
+.cardUsuario {
+    padding-bottom: 10px;
+    display: flex;
+    /* Alinea los datos en fila */
+    flex-direction: row;
+    /* Distribuye los elementos horizontalmente */
+    align-items: center;
+    /* Centra los elementos verticalmente */
+    min-width: 100%;
+    /* Asegura que cada card tenga espacio */
+
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    white-space: nowrap;
+    flex-wrap: wrap;
+    /* Ajusta el contenido al tamaño de la tarjeta */
+
+    background-color: #333;
+    /* Un tono más claro que el container para contraste */
+    color: #fff;
+    /* Texto blanco para mejor visibilidad */
+
+
+
+    transition: background 0.3s ease;
+
+
+
+
+}
+.cardUsuario span {
+    width: 100%;
+    flex: 1;
+    /* Distribuye el espacio uniformemente */
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    border-right: 1px solid #ddd;
+    /* Línea separadora */
+
+    color: #bbb;
+    /* Gris claro para un mejor contraste con el fondo */
+    font-weight: bold;
+}
+
+/* Elimina la línea separadora del último elemento */
+.cardcardUsuario span:last-child {
+    border-right: none;
+}
 
 .card:hover {
+    background-color: #444;
+    /* Un poco más claro al hacer hover */
+    /* Gris suave */
+    cursor: pointer;
+}
+.cardUsuario:hover {
     background-color: #444;
     /* Un poco más claro al hacer hover */
     /* Gris suave */

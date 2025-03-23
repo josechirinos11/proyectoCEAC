@@ -55,6 +55,26 @@ function deleteReparacion(event) {
     };
 }
 
+function deleteUsuario(event) {
+    event.preventDefault();
+    console.log("Se hizo clic en una Eliminar usuario");
+    const id = document.getElementById('deleteId').value;
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'index.php?controller=auth&action=delete', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('id=' + id);
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            const card = document.querySelector(`.cardUsuario[data-id='${id}']`);
+            if (card) card.remove();
+            alert('Usuario Eliminado');
+            document.getElementById('modal').style.display = "none"; // Corrección
+        } else {
+            alert('Error al eliminar el Usuario');
+        }
+    };
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM completamente cargado");
 
@@ -132,6 +152,17 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("modalDireccion").value = fields[1].textContent;
             document.getElementById("modalTelefono").value = fields[2].textContent;
             document.getElementById("modalDomicilio_reparacion").value = fields[3].textContent;
+            modal.style.display = "flex";
+        });
+    });
+
+    document.querySelectorAll(".cardUsuario").forEach(card => {
+        card.addEventListener("click", function () {
+            console.log("click en formulario de Usuario");
+            const fields = card.children;
+           
+            document.getElementById("deleteId").value = card.getAttribute("data-id");
+           
             modal.style.display = "flex";
         });
     });

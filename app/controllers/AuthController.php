@@ -75,6 +75,22 @@ class AuthController
         }
     }
 
+    //eliminar usuario
+    public function delete()
+    {
+        if (isset($_POST['id'])) {
+            $id = $_POST['id']; // Obtener el ID del usuario
+
+
+            
+            // Instanciar el modelo de Usuario
+            $usuarioModel = new Usuario($this->pdo);
+            $usuarioModel->deleteUser($id);
+            header("Location: index.php?controller=dashboard&action=home");
+            exit;
+        }
+    }
+
     // Cerrar sesión
     public function logout()
     {
