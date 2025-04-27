@@ -24,6 +24,7 @@
     <input type="text" name="persona_contacto" id="persona_contacto">
     
     <button class="padding-boton" type="submit">Guardar</button>
+    <button id="closeBtn" type="button" onclick="window.location.href='index.php?controller=aseguradora&action=index'">Cancelar</button>
 </form>
 
 </div>

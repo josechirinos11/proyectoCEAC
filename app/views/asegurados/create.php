@@ -17,6 +17,7 @@
     <input type="text" name="domicilio_reparacion" id="domicilio_reparacion">
     
     <button type="submit">Guardar</button>
+    <button id="closeBtn" type="button" onclick="window.location.href='index.php?controller=asegurado&action=index'">Cancelar</button>
 </form>
 
 </div>

@@ -261,6 +261,7 @@ form button {
     font-weight: 600;
     transition: background-color 0.2s;
     text-decoration: none; /* Elimina el subrayado */
+    text-align: center; /* Centra el texto */
 }
 
 .btn:hover {
@@ -568,8 +569,14 @@ h2 {
 }
 
 /* Elimina la línea separadora del último elemento */
-.cardcardUsuario span:last-child {
+.cardUsuario span:last-child {
     border-right: none;
+}
+.cardUsuario:hover {
+    background-color: #444;
+    /* Un poco más claro al hacer hover */
+    /* Gris suave */
+    cursor: pointer;
 }
 
 .card:hover {
@@ -578,12 +585,7 @@ h2 {
     /* Gris suave */
     cursor: pointer;
 }
-.cardUsuario:hover {
-    background-color: #444;
-    /* Un poco más claro al hacer hover */
-    /* Gris suave */
-    cursor: pointer;
-}
+
 
 /* Estilos del modal */
 .modal {
@@ -794,6 +796,7 @@ footer p {
 /* Ajuste para labels e inputs */
 .login form label {
     font-weight: bold;
+    margin-bottom: 4px;
     color: #333;
 }
 
@@ -954,4 +957,313 @@ footer p {
     box-shadow: 4px 4px 15px rgba(255, 255, 255, 0.6); /* Sombra más clara */
     padding-bottom: 0px; /* Espaciado interno */
     
+}
+@media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+    }
+  
+    .main {
+      max-width: 90%;
+      padding: 20px;
+    }
+  
+    .tipoForm {
+      width: 90%;
+      margin: 20px auto;
+      padding: 20px;
+    }
+  
+    .cards-container {
+      padding: 10px;
+    }
+  
+    .card, .cardAsegurado, .cardReparacion, .cardUsuario {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+      white-space: normal;
+    }
+  
+    .modal-content {
+      width: 90%;
+      max-width: 350px;
+    }
+  }
+  
+/* --- RESPONSIVE MEJORADO PARA MOVILES Y TABLETS --- */
+@media (max-width: 991px) {
+    /* Estructura general en columna */
+    .page, .pageHome {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 5vw;
+        min-width: 0;
+    }
+    /* Formularios en columna y centrados */
+    form, .form, .login-form {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    /* Inputs y selects ocupan todo el ancho */
+    input, select, textarea {
+        width: 100% !important;
+        box-sizing: border-box;
+        font-size: 1em;
+    }
+    /* Botones ocupan todo el ancho y con margen */
+    button, input[type="submit"] {
+        width: 100%;
+        margin: 10px 0 0 0;
+        font-size: 1em;
+        padding: 12px 0;
+        box-sizing: border-box;
+    }
+    /* Tablas: scroll horizontal si necesario */
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        font-size: 0.95em;
+    }
+    /* Cards en columna */
+    .card,
+    .cardAsegurado,
+    .cardReparacion {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    /* Elementos dentro de cards ocupan todo el ancho */
+    .card span,
+    .cardAsegurado span,
+    .cardReparacion span {
+        width: 100%;
+        text-align: left;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding: 8px 0;
+    }
+
+    .card span:last-child,
+    .cardAsegurado span:last-child,
+    .cardReparacion span:last-child {
+        border-bottom: none;
+    }
+
+    /* Navegación vertical */
+    nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 10px;
+    }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    /* Modales adaptados */
+    .modal-content {
+        width: 96vw;
+        max-width: 380px;
+        min-width: 0;
+    }
+    /* Ajuste para mensajes de error y alertas */
+    .error, .alert {
+        font-size: 1em;
+        padding: 10px 0;
+        text-align: center;
+    }
+    /* Carousel más compacto */
+    .carousel-item {
+        height: 220px;
+        font-size: 1em;
+    }
+}
+
+/* Espacio después del header en todas las vistas */
+.header-spacer {
+    height: 32px;
+    background-color: transparent;
+}
+@media (max-width: 991px) {
+    .header-spacer {
+        height: 22px;
+        background-color: transparent;
+    }
+    /* Menú hamburguesa */
+    .menu-toggle {
+        display: block !important;
+        background-color: #000;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        font-size: 2rem;
+        color: #fff;
+        position: fixed;
+        top: 12px;
+        left: 16px;
+        z-index: 1002; /* Mayor z-index para estar por encima de todo */
+        cursor: pointer;
+        padding: 5px 10px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    /* Navegación */
+    .nav {
+        position: static;
+    }
+    
+    /* Enlaces de navegación (ocultos por defecto) */
+    .navLinks {
+        display: none;
+    }
+    
+    /* Enlaces de navegación (visibles al activar) */
+    .navLinks.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 5px;
+        left: 5px;
+   
+        width: max-content;
+        height: max-content;
+        max-width: 100vw;
+        max-height: 100vh;
+        background-color: #000;
+        border: 2px solid #fff;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        z-index: 1001; /* Mayor que cualquier otro contenido */
+        padding-top: 70px; /* Espacio para el botón */
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: hidden;
+    }
+    
+    /* Cada enlace del menú */
+    .navLink {
+        padding: 16px 0;
+        margin: 5px 0;
+        text-align: center;
+        width: 90%;
+        font-size: 1.2rem;
+        color: #fff !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .navLink:last-child {
+        border-bottom: none;
+    }
+}
+/* Oculta el botón en escritorio */
+.menu-toggle {
+    display: none;
+}
+
+/* Estilos para el header */
+.header {
+    position: relative;
+    z-index: 1000;
+    background-color: #000;
+    padding: 10px 0;
+}
+
+/* --- ESTILOS PARA EL MENÚ MÓVIL (REEMPLAZA TODAS LAS REGLAS ANTERIORES) --- */
+
+/* Espacio después del header */
+.header-spacer {
+    height: 32px;
+    background-color: transparent;
+}
+
+.header {
+    position: relative;
+    z-index: 1000;
+    background-color: #000;
+    padding: 10px 0;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .header-spacer {
+        height: 22px;
+        background-color: transparent;
+    }
+    
+    /* Botón de menú hamburguesa */
+    .menu-toggle {
+        display: block !important;
+        background-color: #000;
+        border: 2px solid #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        font-size: 1.8rem;
+        color: #fff;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 9999;
+        cursor: pointer;
+        padding: 5px 10px;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    
+    /* Navegación */
+    .nav {
+        position: static;
+    }
+    
+    /* Enlaces de navegación (ocultos por defecto) */
+    .navLinks {
+        display: none;
+    }
+    
+    /* Enlaces de navegación (visibles al activar) */
+    .navLinks.active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 5px;
+        left: 5px;
+   
+        width: max-content;
+        height: max-content;
+        max-width: 100vw;
+        max-height: 100vh;
+        background-color: #000;
+        border: 2px solid #fff;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        z-index: 9998;
+        padding: 60px 10px 20px 10px;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: hidden;
+    }
+    
+    /* Cada enlace del menú */
+    .navLink {
+        padding: 16px 0;
+        margin: 5px 0;
+        text-align: center;
+        width: 90%;
+        font-size: 1.2rem;
+        color: #fff !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .navLink:last-child {
+        border-bottom: none;
+    }
 }

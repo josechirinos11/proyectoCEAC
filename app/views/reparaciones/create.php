@@ -40,6 +40,7 @@
     <input type="file" name="imagen" id="imagen" accept="image/*">
     
     <button type="submit">Registrar</button>
+    <button id="closeBtn" type="button" onclick="window.location.href='index.php?controller=reparacion&action=index'">Cancelar</button>
 </form>
 
 
